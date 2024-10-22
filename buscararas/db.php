@@ -1,21 +1,13 @@
-<?php
-$host = 'localhost'; // ou o endereço do seu servidor de banco de dados
-$db = 'busca'; // substitua pelo nome do seu banco de dados
-$user = 'root'; // substitua pelo seu usuário do banco de dados
-$pass = ''; // substitua pela sua senha do banco de dados
+$servername = "your-mysql-server.mysql.database.azure.com";
+$username = "";
+$password = "";
+$dbname = "busca";
 
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-    // Definindo o modo de erro do PDO para exceções
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Erro na conexão: " . $e->getMessage();
-}
+// Criar conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=busca', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo 'Conexão falhou: ' . $e->getMessage();
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
 }
-?>
+echo "Conexão bem-sucedida!";
