@@ -1,6 +1,6 @@
 $servername = "your-mysql-server.mysql.database.azure.com";
-$username = "";
-$password = "";
+$username = "prinkwqonp";
+$password = "eIJzehbQWMIJ$hBV";
 $dbname = "busca";
 
 // Criar conexão
